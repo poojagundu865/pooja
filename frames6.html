@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Display with User Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        select {
+            font-size: 16px;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        iframe {
+            width: 80%;
+            height: 500px;
+            border: 2px solid #ccc;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Choose a Video to Display</h1>
+
+    <!-- Dropdown to select video -->
+    <select id="videoSelector" onchange="loadVideo()">
+        <option value="">Select a video</option>
+        <option value="https://www.youtube.com/embed/dQw4w9WgXcQ">Rick Astley - Never Gonna Give You Up</option>
+        <option value="https://www.youtube.com/embed/tgbNymZ7vqY">Official Video: "One Day" by Matisse</option>
+        <option value="https://www.youtube.com/embed/V-_O7nl0Ii0">Adele - Hello</option>
+    </select>
+
+    <!-- Video iframe will be displayed here -->
+    <iframe id="videoFrame" src="" frameborder="0" allowfullscreen></iframe>
+
+    <script>
+        function loadVideo() {
+            // Get selected video URL
+            var videoUrl = document.getElementById("videoSelector").value;
+
+            // Get iframe element
+            var iframe = document.getElementById("videoFrame");
+
+            // If no video is selected, clear the iframe
+            if (videoUrl === "") {
+                iframe.src = "";
+            } else {
+                iframe.src = videoUrl;
+            }
+        }
+    </script>
+
+</body>
+</html>
